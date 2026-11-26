@@ -1,0 +1,27 @@
+{
+  "_comment": "ก๊อปเนื้อใน hooks ไปวางที่ .claude/settings.json ของ project ใหม่ (ลบ _comment ออกก่อน — JSON จริงห้ามมี comment). settings.hook.json นี้คือ copy ที่ track ใน git ได้ เพราะ .claude/ ตัวจริงมักโดน gitignore",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'เตือน: (1) ขอ approve diff ก่อนตามกฎ (2) ตรวจ review checklist ตาม CLAUDE.md (3) หลัง commit ต้อง re-read+verify'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/lint-changed.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
