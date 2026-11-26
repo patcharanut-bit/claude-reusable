@@ -52,6 +52,7 @@ git -C /tmp/hub sparse-checkout set _reusable   # ใช้ -C แทน cd เ�
 - `commit-auto` — ดู staged changes → ร่าง commit message EN กระชับ → commit ให้เลย
 - `commit-explain` — ดู staged changes → อธิบายเป็นไทยว่าเพิ่ม/ลด/แก้อะไร → ร่าง message EN **ไม่ commit** (ให้รีวิวเอง)
 - `ui-parity-port` — port UI screen จาก reference เข้า Next.js + Tailwind frontend พร้อม verify computed styles ใน browser
+- `figma-port` — port หน้าจาก Figma เข้า React Native (Expo) ด้วยค่า padding/spacing/สี/font **จริง** ดึงผ่าน Figma REST API (มี `parse_figma.py` แปลง node JSON → ตาราง spec)
 
 > **source of truth = `_reusable/skills/` บน GitHub** — แก้ที่นี่ที่เดียว
 > `.claude/skills/` บนเครื่อง = สำเนา local (อยู่ใต้ `.claude/` ที่ gitignore ไว้ → ไม่ขึ้น git)
